@@ -24,12 +24,11 @@ jobs:
       - name: Test auth package
         run: go test -cover ./...  
 
-style:
-  tests:
+  style:
     name: "Style"
     runs-on: ubuntu-latest
   
-  steps:
-    - name: Check formatting
-    - run: test -z $(go fmt ./...)
+    steps:
+      - name: Check formatting
+      - run: test -z $(go fmt ./...)
 
