@@ -23,6 +23,12 @@ jobs:
       
       - name: Test auth package
         run: go test -cover ./...  
+      
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+        
+      - name: Run Security checks
+        run: gosec ./...
 
   style:
     name: "Style"
