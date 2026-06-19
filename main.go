@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 
 	"github.com/go-chi/chi"
@@ -34,6 +35,10 @@ func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
 		log.Fatal("PORT environment variable is not set")
+	}
+	p, err := strconv.Atoi(port)
+	if err != nil {
+		log.Fatal("invalid port")
 	}
 
 	apiCfg := apiConfig{}
@@ -95,6 +100,6 @@ func main() {
 		Handler:           router,
 	}
 
-	log.Printf("Serving on port: %q\n", port)
+	log.Println("Serving on port: ", p)
 	log.Fatal(srv.ListenAndServe())
 }
