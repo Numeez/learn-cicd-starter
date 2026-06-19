@@ -65,7 +65,7 @@ func TestGetAPIKey(t *testing.T) {
 			if key != tt.expectedKey {
 				t.Errorf("expected %q, got %q", tt.expectedKey, key)
 			}
-			
+
 		})
 	}
 }
